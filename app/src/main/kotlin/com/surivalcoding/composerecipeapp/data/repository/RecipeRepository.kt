@@ -1,5 +1,8 @@
 package com.surivalcoding.composerecipeapp.data.repository
 
+import com.surivalcoding.composerecipeapp.data.model.Post
+import com.surivalcoding.composerecipeapp.data.model.Recipe
+import com.surivalcoding.composerecipeapp.data.model.Tag
 import java.util.UUID
 
 

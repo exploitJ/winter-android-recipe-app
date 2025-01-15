@@ -19,8 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.surivalcoding.composerecipeapp.ui.AppColors
 import com.surivalcoding.composerecipeapp.ui.AppTextStyles
+import com.surivalcoding.composerecipeapp.ui.theme.AppColors
 import kotlin.String
 
 @Composable
@@ -33,7 +33,7 @@ private fun Button(
     Box(
         modifier = modifier
             .background(
-                color = AppColors.primary,
+                color = AppColors.primary100,
                 shape = RoundedCornerShape(10.dp),
             )
             .clickable {

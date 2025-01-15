@@ -16,8 +16,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.surivalcoding.composerecipeapp.ui.AppColors
 import com.surivalcoding.composerecipeapp.ui.AppTextStyles
+import com.surivalcoding.composerecipeapp.ui.theme.AppColors
 
 @Composable
 fun TabContainer(
@@ -46,7 +46,7 @@ fun TabContainer(
 @Composable
 fun Segment(modifier: Modifier = Modifier, label: String, isSelected: Boolean) {
     val color = if (isSelected) Color.White else AppColors.primary80
-    val backgroundColor = if (isSelected) AppColors.primary else Color.Transparent
+    val backgroundColor = if (isSelected) AppColors.primary100 else Color.Transparent
 
     Box(
         modifier = modifier.background(

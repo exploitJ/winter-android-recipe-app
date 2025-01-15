@@ -1,5 +1,8 @@
 package com.surivalcoding.composerecipeapp.data.repository
 
+import com.surivalcoding.composerecipeapp.data.model.Email
+import com.surivalcoding.composerecipeapp.data.model.Post
+import com.surivalcoding.composerecipeapp.data.model.User
 import java.util.*
 
 interface UserInfoRepository {
