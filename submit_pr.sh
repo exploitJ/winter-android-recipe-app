@@ -17,7 +17,6 @@ title="[$date_fmt] $name - 과제 제출"
 
 if ! gh pr create --base "$merge_to" \
     --title "$title" \
-    -T pull_request_template.md \
     --editor "$@"; then
     echo "PR 생성 오류" >&2
     exit 2
