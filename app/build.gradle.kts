@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+
     alias(libs.plugins.kotlin.compose)
 }
 
@@ -53,6 +54,8 @@ dependencies {
     implementation(platform(libs.coil.bom))
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
+    implementation(libs.coil.svg)
+
     implementation(libs.androidx.material.icons.extended)
 
     implementation(libs.androidx.core.ktx)

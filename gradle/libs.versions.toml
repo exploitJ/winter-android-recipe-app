@@ -1,8 +1,8 @@
 [versions]
-activityCompose = "1.10.0-rc01"
+activityCompose = "1.10.0"
 agp = "8.8.0"
 coilBom = "3.0.4"
-composeBom = "2024.12.01"
+composeBom = "2025.01.00"
 coreKtx = "1.15.0"
 dependencyVersions = "0.51.0"
 desugarJdk = "2.1.4"
@@ -22,6 +22,7 @@ hilt = "2.55"
 
 [libraries]
 androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
+coil-svg = { module = "io.coil-kt.coil3:coil-svg", version.ref = "coilBom" }
 desugarjdklibs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugarJdk" }
 coil-bom = { module = "io.coil-kt.coil3:coil-bom", version.ref = "coilBom" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose" }
@@ -63,7 +64,6 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
-
 
 [bundles]
 ktor-client = ["ktor-client-core", "ktor-client-okhttp", "ktor-plugin-auth", "ktor-plugin-content-negotiation", "ktor-plugin-logging", "ktor-plugin-logging-backend"]
