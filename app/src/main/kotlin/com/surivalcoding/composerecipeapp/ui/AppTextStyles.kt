@@ -10,6 +10,7 @@ import com.surivalcoding.composerecipeapp.R
 object AppTextStyles {
     private val poppinsFamily = FontFamily(
         Font(R.font.poppins_bold, FontWeight.Bold),
+        Font(R.font.poppins_semibold, FontWeight.SemiBold),
         Font(R.font.poppins_regular)
     )
 

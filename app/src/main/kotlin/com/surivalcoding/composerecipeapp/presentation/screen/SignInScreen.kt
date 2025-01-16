@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -16,6 +17,7 @@ import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -41,7 +43,7 @@ fun SignInScreen(
         modifier = Modifier
             .fillMaxSize()
             .background(color = Color.White)
-            .padding(horizontal = 20.dp),
+            .padding(horizontal = 30.dp),
         verticalArrangement = Arrangement.SpaceEvenly,
     ) {
         Column(
@@ -73,25 +75,48 @@ fun SignInScreen(
                 keyboardType = KeyboardType.Password,
             )
 
-            Text(
+            TextButton(
                 modifier = Modifier
-                    .align(Alignment.Start)
-                    .clickable {
-
-                    },
-                text = "Forgot Password?",
-                style = AppTextStyles.smallerTextRegular.copy(color = AppColors.secondary100),
-            )
+                    .align(Alignment.Start),
+                onClick = {},
+                colors = ButtonDefaults.textButtonColors().copy(
+                    contentColor = AppColors.secondary100
+                ),
+                contentPadding = PaddingValues(0.dp)
+            ) {
+                Text(
+                    text = "Forgot Password?",
+                    style = AppTextStyles.smallerTextRegular,
+                )
+            }
             BigButton(text = "Sign In", onClick = {})
 
             ThirdPartySignInDivider()
             ThirdPartySignInCombo()
+
+        }
+        Row(
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(text = "Don't have an account?", style = AppTextStyles.smallerTextRegular)
+            TextButton(onClick = {},
+                colors = ButtonDefaults.textButtonColors().copy(
+                    contentColor = AppColors.secondary100
+                ),
+                contentPadding = PaddingValues(0.dp)
+            ) {
+                Text(
+                    text = "Sign Up",
+                    style = AppTextStyles.smallerTextSemiBold
+                )
+            }
         }
     }
 }
 
 @Composable
-private fun ThirdPartySignInCombo() {
+fun ThirdPartySignInCombo() {
     Row(
         modifier = Modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(25.dp, Alignment.CenterHorizontally),
@@ -111,7 +136,7 @@ private fun ThirdPartySignInCombo() {
 }
 
 @Composable
-private fun ThirdPartySignInDivider() {
+fun ThirdPartySignInDivider() {
     Row(
         modifier = Modifier,
         verticalAlignment = Alignment.CenterVertically,

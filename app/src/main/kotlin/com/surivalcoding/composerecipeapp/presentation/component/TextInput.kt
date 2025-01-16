@@ -79,10 +79,6 @@ fun TextInput(
             }
         )
     }
-
-    LaunchedEffect(Unit) {
-        focusRequester.requestFocus()
-    }
 }
 
 @Preview(showBackground = true, backgroundColor = 0xF0FF)
