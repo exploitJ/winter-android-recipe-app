@@ -7,8 +7,8 @@ import java.util.UUID
 
 
 interface RecipeRepository {
-    suspend fun getRecentPosts(amount: Int): Set<Post<Recipe>>
-    suspend fun <T> getSorted(comparator: Comparator<T>): Set<Post<Recipe>>
+    suspend fun getRecentPosts(amount: Int): List<Post<Recipe>>
+    suspend fun <T> getSorted(comparator: Comparator<T>): List<Post<Recipe>>
     suspend fun findPostByAuthor(userId: UUID): Set<Post<Recipe>>
     suspend fun getFiltered(tags: Array<Tag> = arrayOf(Tag("all"))): Set<Post<Recipe>>
     suspend fun findByStarRating(range: IntRange): Set<Post<Recipe>>
