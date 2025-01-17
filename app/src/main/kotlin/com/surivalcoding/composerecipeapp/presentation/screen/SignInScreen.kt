@@ -38,9 +38,10 @@ import com.surivalcoding.composerecipeapp.ui.theme.AppColors
 
 @Composable
 fun SignInScreen(
+    modifier: Modifier = Modifier,
 ) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .background(color = Color.White)
             .padding(horizontal = 30.dp),
@@ -70,7 +71,7 @@ fun SignInScreen(
             )
             TextInput(
                 modifier = Modifier.padding(top = 10.dp),
-                label = "Password",
+                label = "Enter Password",
                 placeholder = "Enter Password",
                 keyboardType = KeyboardType.Password,
             )
