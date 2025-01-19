@@ -64,7 +64,7 @@ object AppTextStyles {
         fontSize = 18.sp,
         lineHeight = 27.sp,
         fontWeight = FontWeight.Bold,
-        fontFamily = poppinsFamily
+        fontFamily = poppinsFamily,
     )
 
     val mediumTextRegular = TextStyle(
@@ -122,6 +122,13 @@ object AppTextStyles {
     val smallerTextRegular = TextStyle(
         fontSize = 11.sp,
         lineHeight = 17.sp,
+        fontWeight = FontWeight.Normal,
+        fontFamily = poppinsFamily
+    )
+
+    val smallerTextSmallLabel = TextStyle(
+        fontSize = 8.sp,
+        lineHeight = 12.sp,
         fontWeight = FontWeight.Normal,
         fontFamily = poppinsFamily
     )

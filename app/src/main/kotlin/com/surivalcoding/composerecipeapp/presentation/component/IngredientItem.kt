@@ -25,6 +25,7 @@ import coil3.asImage
 import coil3.compose.AsyncImage
 import coil3.compose.AsyncImagePreviewHandler
 import coil3.compose.LocalAsyncImagePreviewHandler
+import coil3.toUri
 import com.surivalcoding.composerecipeapp.data.model.Ingredient
 import com.surivalcoding.composerecipeapp.data.model.Media
 import com.surivalcoding.composerecipeapp.ui.AppTextStyles
@@ -79,7 +80,7 @@ private fun IngredientItemShowcase() {
         IngredientItem(ingredient = Ingredient(
             name = "Tomatoes",
             shortName = "Tomatoes",
-            thumbnail = Media.Image(Url("https://example.com/tomatoes.jpg")),
+            thumbnail = Media.Image("https://example.com/tomatoes.jpg".toUri()),
             amountInGrams = 500,
         ))
     }

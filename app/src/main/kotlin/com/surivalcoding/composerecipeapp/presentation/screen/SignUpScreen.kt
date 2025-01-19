@@ -22,11 +22,14 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalViewConfiguration
+import androidx.compose.ui.platform.ViewConfiguration
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import com.surivalcoding.composerecipeapp.presentation.component.BigButton
 import com.surivalcoding.composerecipeapp.presentation.component.TextInput
@@ -34,7 +37,14 @@ import com.surivalcoding.composerecipeapp.ui.AppTextStyles
 import com.surivalcoding.composerecipeapp.ui.theme.AppColors
 
 @Composable
-fun SignUpScreen(modifier: Modifier = Modifier) {
+fun SignUpScreen(
+    modifier: Modifier = Modifier,
+) {
+    val viewConfiguration = object : ViewConfiguration by LocalViewConfiguration.current {
+        override val minimumTouchTargetSize: DpSize
+            get() = DpSize(4.dp, 4.dp)
+
+    }
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -127,11 +137,11 @@ fun SignUpScreen(modifier: Modifier = Modifier) {
 
             ThirdPartySignInDivider()
             ThirdPartySignInCombo()
-
         }
         Row(
-            modifier = Modifier.padding(horizontal = 10.dp)
-                .align (Alignment.CenterHorizontally),
+            modifier = Modifier
+                .padding(horizontal = 10.dp)
+                .align(Alignment.CenterHorizontally),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Text(text = "Already a member?", style = AppTextStyles.smallerTextRegular)
@@ -150,6 +160,7 @@ fun SignUpScreen(modifier: Modifier = Modifier) {
         }
     }
 }
+
 
 @Preview(device = Devices.PIXEL_7_PRO)
 @Composable
