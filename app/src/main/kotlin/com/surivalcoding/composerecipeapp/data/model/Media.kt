@@ -1,8 +1,8 @@
 package com.surivalcoding.composerecipeapp.data.model
 
-import io.ktor.http.*
+import coil3.Uri
 
 sealed interface Media {
-    data class Image(val url: Url) : Media
-    data class Video(val url: Url, val thumbnail: Image) : Media
+    data class Image(val url: Uri) : Media
+    data class Video(val url: Uri, val thumbnail: Image) : Media
 }

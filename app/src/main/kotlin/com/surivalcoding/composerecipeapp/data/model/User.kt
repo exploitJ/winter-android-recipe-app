@@ -1,11 +1,11 @@
 package com.surivalcoding.composerecipeapp.data.model
 
-import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.Instant
 import java.util.UUID
 
 data class User(
-    val id: UUID,
-    val memberSince: LocalDateTime,
+    val id: UserId,
+    val memberSince: Instant,
     val nickname: String,
     val fullName: String,
     val email: Email,
@@ -15,8 +15,11 @@ data class User(
     val bio: String,
     val occupation: String,
     val address: String,
-    val savedRecipes: Set<Post<Recipe>>,
+    val savedPosts: List<PostId>,
 )
 
 @JvmInline
 value class Email(val address: String)
+
+@JvmInline
+value class UserId(val id: UUID)

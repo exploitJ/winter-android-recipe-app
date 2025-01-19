@@ -4,6 +4,7 @@ data class Recipe(
     val ingredients: List<Ingredient>,
     val instruction: List<Steps>,
     val starRating: Float,
+    val cookingTimeInMinutes: Int,
     val servings: Int,
     val tags: Set<Tag>,
 ) {
