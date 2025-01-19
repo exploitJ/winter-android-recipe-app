@@ -66,4 +66,4 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 
 [bundles]
-ktor-client = ["ktor-client-core", "ktor-client-okhttp", "ktor-plugin-auth", "ktor-plugin-content-negotiation", "ktor-plugin-logging", "ktor-plugin-logging-backend"]
+ktor-client = ["ktor-client-core", "ktor-client-okhttp", "ktor-plugin-auth", "ktor-plugin-content-negotiation", "ktor-plugin-logging", "ktor-plugin-logging-backend", "ktor-plugin-serialization-json"]
