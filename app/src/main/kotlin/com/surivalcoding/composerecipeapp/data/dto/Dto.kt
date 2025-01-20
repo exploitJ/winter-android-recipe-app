@@ -1,7 +1,6 @@
 package com.surivalcoding.composerecipeapp.data.dto
 
 import kotlinx.datetime.Instant
-import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
@@ -16,7 +15,7 @@ data class NotificationsResponse(
 
 @Serializable
 data class UserResponse(
-    val getCurrentUser: List<UserDto>
+    val getCurrentUser: UserDto
 )
 
 @Serializable
@@ -43,15 +42,11 @@ data class MinimalUserDto(
 )
 
 @Serializable
-sealed interface MediaDto {
-    @Serializable
-    @SerialName("image")
-    data class Image(val url: String) : MediaDto
-
-    @Serializable
-    @SerialName("video")
-    data class Video(val url: String, val thumbnail: Image) : MediaDto
-}
+data class MediaDto(
+    val type: String,
+    val url: String,
+    val thumbnail: MediaDto? = null
+)
 
 @Serializable
 data class RecipePostDto(
@@ -62,7 +57,7 @@ data class RecipePostDto(
     val shareableLink: String,
     val editedAt: Instant,
     val createdAt: Instant,
-    val thumbnail: MediaDto.Image?,
+    val thumbnail: MediaDto?,
     val media: List<MediaDto> = emptyList(),
     val content: RecipeDto
 )
@@ -81,7 +76,7 @@ data class RecipeDto(
 data class IngredientDto(
     val name: String,
     val shortName: String,
-    val thumbnail: MediaDto.Image,
+    val thumbnail: MediaDto,
     val amountInGrams: Int
 )
 
@@ -115,6 +110,6 @@ data class NotificationDto(
 data class MinimalPostDto(
     val id: String,
     val title: String,
-    val thumbnail: MediaDto.Image?
+    val thumbnail: MediaDto?
 )
 

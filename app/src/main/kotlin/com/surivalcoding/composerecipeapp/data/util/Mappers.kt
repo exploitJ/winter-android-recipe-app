@@ -58,9 +58,10 @@ fun MinimalUserDto.toDomainModel(): User = User(
     savedPosts = emptyList()
 )
 
-fun MediaDto.toDomainModel(): Media = when (this) {
-    is MediaDto.Image -> Media.Image(url.toUri())
-    is MediaDto.Video -> Media.Video(url.toUri(), thumbnail.toDomainModel() as Media.Image)
+fun MediaDto.toDomainModel(): Media = when (this.type) {
+    "image" -> Media.Image(url.toUri())
+    "video" -> Media.Video(url.toUri(), thumbnail?.toDomainModel() as Media.Image)
+    else -> Media.Image(url.toUri())
 }
 
 fun RecipePostDto.toDomainModel(): Post<Recipe> = Post(

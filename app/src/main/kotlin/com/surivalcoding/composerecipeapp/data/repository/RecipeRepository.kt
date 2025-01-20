@@ -8,12 +8,13 @@ import com.surivalcoding.composerecipeapp.data.model.UserId
 
 
 interface RecipeRepository {
+    suspend fun getSavedRecipes(id: UserId): List<Post<Recipe>>
     suspend fun getRecentPosts(amount: Int): List<Post<Recipe>>
     suspend fun <T> getSorted(comparator: Comparator<T>): List<Post<Recipe>>
     suspend fun findPostByAuthor(id: UserId): Set<Post<Recipe>>
     suspend fun getFiltered(tags: Array<Tag> = arrayOf(Tag("all"))): Set<Post<Recipe>>
     suspend fun findByStarRating(range: IntRange): Set<Post<Recipe>>
-    suspend fun findBySearchTerm(vararg keywords: String): Set<Post<Recipe>>
+    suspend fun findBySearchTerm(vararg keywords: String): List<Post<Recipe>>
 
     suspend fun createRecipe(content: Post<Recipe>): Result<Post<Recipe>>
     suspend fun editRecipe(id: PostId, newPost: Post<Recipe>): Result<Post<Recipe>>

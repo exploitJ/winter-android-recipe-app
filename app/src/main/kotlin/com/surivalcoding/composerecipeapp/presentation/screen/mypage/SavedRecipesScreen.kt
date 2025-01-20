@@ -43,7 +43,7 @@ import java.util.UUID
 @Composable
 fun SavedRecipesScreen(
     modifier: Modifier = Modifier,
-    state: SavedRecipesState = SavedRecipesState(),
+    state: SavedRecipesState,
 ) {
     Scaffold(modifier = modifier.fillMaxSize(),
         topBar = {

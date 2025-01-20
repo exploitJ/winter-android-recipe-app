@@ -27,7 +27,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.TileMode
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
@@ -42,6 +45,7 @@ import coil3.compose.LocalAsyncImagePreviewHandler
 import coil3.toUri
 import com.surivalcoding.composerecipeapp.ui.AppTextStyles
 import com.surivalcoding.composerecipeapp.ui.theme.AppColors
+import java.io.BufferedReader
 
 @Composable
 fun RecipeCard(
@@ -61,6 +65,22 @@ fun RecipeCard(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.BottomStart,
         ) {
+            AsyncImage(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .zIndex(-1f),
+                model = image,
+                contentScale = ContentScale.Crop,
+                contentDescription = null,
+            )
+            Box(modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    brush = Brush.verticalGradient(
+                        colors = listOf(Color.Transparent, Color.Black),
+                    ),
+                    alpha = 0.8f
+                ))
             Row(
                 modifier = Modifier
                     .padding(10.dp)
@@ -136,12 +156,6 @@ fun RecipeCard(
                     }
                 }
             }
-            AsyncImage(
-                modifier = Modifier.zIndex(-1f),
-                model = image,
-                contentScale = ContentScale.Crop,
-                contentDescription = null,
-            )
         }
     }
 }
