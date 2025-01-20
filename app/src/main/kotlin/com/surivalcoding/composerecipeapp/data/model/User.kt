@@ -22,4 +22,6 @@ data class User(
 value class Email(val address: String)
 
 @JvmInline
-value class UserId(val id: UUID)
+value class UserId(val id: UUID) {
+    override fun toString(): String = id.toString()
+}

@@ -1,0 +1,82 @@
+{
+  "getCurrentUser": {
+    "id": "550e8400-e29b-41d4-a716-446655440000",
+    "memberSince": "2024-01-20T12:00:00Z",
+    "nickname": "chef_mike",
+    "fullName": "Michael Johnson",
+    "email": "mike.johnson@example.com",
+    "profileImage": {
+      "type": "image",
+      "url": "https://picsum.photos/400/400"
+    },
+    "following": [
+      {
+        "id": "550e8400-e29b-41d4-a716-446655440001",
+        "nickname": "foodie_sara",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/401/401"
+        }
+      },
+      {
+        "id": "550e8400-e29b-41d4-a716-446655440002",
+        "nickname": "cooking_master",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/402/402"
+        }
+      },
+      {
+        "id": "550e8400-e29b-41d4-a716-446655440003",
+        "nickname": "bakery_queen",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/403/403"
+        }
+      }
+    ],
+    "followers": [
+      {
+        "id": "550e8400-e29b-41d4-a716-446655440004",
+        "nickname": "pasta_lover",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/404/404"
+        }
+      },
+      {
+        "id": "550e8400-e29b-41d4-a716-446655440005",
+        "nickname": "asian_cuisine",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/405/405"
+        }
+      },
+      {
+        "id": "550e8400-e29b-41d4-a716-446655440006",
+        "nickname": "healthy_eats",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/406/406"
+        }
+      },
+      {
+        "id": "550e8400-e29b-41d4-a716-446655440007",
+        "nickname": "dessert_master",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/407/407"
+        }
+      }
+    ],
+    "bio": "Passionate about creating delicious recipes",
+    "occupation": "Professional Chef",
+    "address": "Seattle, WA",
+    "savedPosts": [
+      "123e4567-e89b-12d3-a456-426614174000",
+      "123e4567-e89b-12d3-a456-426614174001",
+      "123e4567-e89b-12d3-a456-426614174002",
+      "123e4567-e89b-12d3-a456-426614174003"
+    ]
+  }
+}

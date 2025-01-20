@@ -1,0 +1,100 @@
+{
+  "getNotifications": [
+    {
+      "title": "New Comment",
+      "contents": "Someone commented on your Margherita Pizza recipe",
+      "sentAt": "2024-01-19T15:30:00Z",
+      "recipient": {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "nickname": "chef_mike",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/400/400"
+        }
+      },
+      "isRead": false,
+      "linkedPost": {
+        "id": "123e4567-e89b-12d3-a456-426614174000",
+        "title": "Classic Margherita Pizza",
+        "thumbnail": {
+          "type": "image",
+          "url": "https://picsum.photos/800/600"
+        }
+      }
+    },
+    {
+      "title": "New Follower",
+      "contents": "foodie_sara started following you",
+      "sentAt": "2024-01-18T09:15:00Z",
+      "recipient": {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "nickname": "chef_mike",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/400/400"
+        }
+      },
+      "isRead": true,
+      "linkedPost": null
+    },
+    {
+      "title": "Recipe Liked",
+      "contents": "cooking_master liked your Thai Basil Chicken recipe",
+      "sentAt": "2024-01-17T14:20:00Z",
+      "recipient": {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "nickname": "chef_mike",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/400/400"
+        }
+      },
+      "isRead": true,
+      "linkedPost": {
+        "id": "123e4567-e89b-12d3-a456-426614174001",
+        "title": "Spicy Thai Basil Chicken",
+        "thumbnail": {
+          "type": "image",
+          "url": "https://picsum.photos/801/601"
+        }
+      }
+    },
+    {
+      "title": "Weekly Digest",
+      "contents": "Your recipes reached 1,000+ views this week!",
+      "sentAt": "2024-01-16T08:00:00Z",
+      "recipient": {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "nickname": "chef_mike",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/400/400"
+        }
+      },
+      "isRead": true,
+      "linkedPost": null
+    },
+    {
+      "title": "Recipe Featured",
+      "contents": "Your Chocolate Lava Cake recipe was featured in 'Weekly Highlights'",
+      "sentAt": "2024-01-15T10:30:00Z",
+      "recipient": {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "nickname": "chef_mike",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/400/400"
+        }
+      },
+      "isRead": true,
+      "linkedPost": {
+        "id": "123e4567-e89b-12d3-a456-426614174002",
+        "title": "Chocolate Lava Cake",
+        "thumbnail": {
+          "type": "image",
+          "url": "https://picsum.photos/802/602"
+        }
+      }
+    }
+  ]
+}

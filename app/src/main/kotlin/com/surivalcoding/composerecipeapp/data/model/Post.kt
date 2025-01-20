@@ -18,4 +18,6 @@ data class Post<T>(
 )
 
 @JvmInline
-value class PostId(val id: UUID)
+value class PostId(val id: UUID) {
+    override fun toString(): String = id.toString()
+}
