@@ -17,8 +17,8 @@ class RecipeApplication : Application(), SingletonImageLoader.Factory {
             .build()
     }
 
-    private val recipeInputStream by lazy { baseContext.resources.openRawResource(R.raw.recipe) }
-    private val userInputStream by lazy { baseContext.resources.openRawResource(R.raw.user) }
+    private val recipeInputStream by lazy { applicationContext.resources.openRawResource(R.raw.recipe) }
+    private val userInputStream by lazy { applicationContext.resources.openRawResource(R.raw.user) }
     private val userDataSource by lazy { DemoNetworkUserDataSource(userInputStream) }
     private val recipeDataSource by lazy { DemoNetworkRecipeDataSource(recipeInputStream) }
 
