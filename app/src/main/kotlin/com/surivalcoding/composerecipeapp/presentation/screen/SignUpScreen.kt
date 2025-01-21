@@ -33,8 +33,8 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import com.surivalcoding.composerecipeapp.presentation.component.BigButton
 import com.surivalcoding.composerecipeapp.presentation.component.TextInput
-import com.surivalcoding.composerecipeapp.ui.AppTextStyles
-import com.surivalcoding.composerecipeapp.ui.theme.AppColors
+import com.surivalcoding.composerecipeapp.presentation.shared.AppTextStyles
+import com.surivalcoding.composerecipeapp.presentation.shared.theme.AppColors
 
 @Composable
 fun SignUpScreen(

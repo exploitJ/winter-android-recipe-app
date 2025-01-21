@@ -16,8 +16,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.surivalcoding.composerecipeapp.ui.AppTextStyles
-import com.surivalcoding.composerecipeapp.ui.theme.AppColors
+import com.surivalcoding.composerecipeapp.presentation.shared.AppTextStyles
+import com.surivalcoding.composerecipeapp.presentation.shared.theme.AppColors
 
 @Composable
 fun TabContainer(

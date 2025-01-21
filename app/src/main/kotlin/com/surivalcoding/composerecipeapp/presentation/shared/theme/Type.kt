@@ -1,4 +1,4 @@
-package com.surivalcoding.composerecipeapp.ui.theme
+package com.surivalcoding.composerecipeapp.presentation.shared.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

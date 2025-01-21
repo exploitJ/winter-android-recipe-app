@@ -1,4 +1,4 @@
-package com.surivalcoding.composerecipeapp.ui.theme
+package com.surivalcoding.composerecipeapp.presentation.shared.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

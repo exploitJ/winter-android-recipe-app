@@ -1,14 +1,12 @@
 package com.surivalcoding.composerecipeapp.presentation.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -33,8 +31,8 @@ import coil3.toUri
 import com.surivalcoding.composerecipeapp.R
 import com.surivalcoding.composerecipeapp.presentation.component.BigButton
 import com.surivalcoding.composerecipeapp.presentation.component.TextInput
-import com.surivalcoding.composerecipeapp.ui.AppTextStyles
-import com.surivalcoding.composerecipeapp.ui.theme.AppColors
+import com.surivalcoding.composerecipeapp.presentation.shared.AppTextStyles
+import com.surivalcoding.composerecipeapp.presentation.shared.theme.AppColors
 
 @Composable
 fun SignInScreen(

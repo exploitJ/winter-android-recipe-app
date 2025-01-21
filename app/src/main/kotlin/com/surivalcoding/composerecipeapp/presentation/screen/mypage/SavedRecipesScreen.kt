@@ -33,8 +33,8 @@ import com.surivalcoding.composerecipeapp.data.model.User
 import com.surivalcoding.composerecipeapp.data.model.UserId
 import com.surivalcoding.composerecipeapp.presentation.component.RecipeCard
 import com.surivalcoding.composerecipeapp.presentation.shared.Loading
-import com.surivalcoding.composerecipeapp.ui.AppTextStyles
-import com.surivalcoding.composerecipeapp.ui.theme.AppColors
+import com.surivalcoding.composerecipeapp.presentation.shared.AppTextStyles
+import com.surivalcoding.composerecipeapp.presentation.shared.theme.AppColors
 import io.ktor.http.Url
 import kotlinx.datetime.Clock
 import java.util.UUID
@@ -52,7 +52,6 @@ fun SavedRecipesScreen(
                     Text(
                         text = "Saved Recipes",
                         style = AppTextStyles.mediumTextBold.copy(color = AppColors.font),
-                        modifier = Modifier.padding(10.dp)
                     )
                 },
             )
@@ -132,6 +131,6 @@ private fun SavedRecipesScreenPreview() {
     }
 
     CompositionLocalProvider(LocalAsyncImagePreviewHandler provides previewHandler) {
-        SavedRecipesScreen(state = SavedRecipesState(recipes))
+        SavedRecipesScreen(state = SavedRecipesState(recipes,false))
     }
 }

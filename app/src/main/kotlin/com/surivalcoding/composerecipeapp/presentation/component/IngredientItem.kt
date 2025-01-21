@@ -28,9 +28,8 @@ import coil3.compose.LocalAsyncImagePreviewHandler
 import coil3.toUri
 import com.surivalcoding.composerecipeapp.data.model.Ingredient
 import com.surivalcoding.composerecipeapp.data.model.Media
-import com.surivalcoding.composerecipeapp.ui.AppTextStyles
-import com.surivalcoding.composerecipeapp.ui.theme.AppColors
-import io.ktor.http.Url
+import com.surivalcoding.composerecipeapp.presentation.shared.AppTextStyles
+import com.surivalcoding.composerecipeapp.presentation.shared.theme.AppColors
 
 @Composable
 fun IngredientItem(
