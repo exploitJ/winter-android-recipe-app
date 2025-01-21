@@ -13,6 +13,7 @@ kotlin = "2.1.0"
 lifecycleRuntime = "2.8.7"
 ktor = "3.0.3"
 materialIconsExtended = "1.7.6"
+navigation = "2.8.5"
 slf4j = "1.7.36"
 coroutines = "1.10.1"
 datetime = "0.6.1"
@@ -24,6 +25,8 @@ hilt = "2.55"
 androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycleRuntime" }
 androidx-lifecycle-viewmodel-compose-android = { module = "androidx.lifecycle:lifecycle-viewmodel-compose-android", version.ref = "lifecycleRuntime" }
 androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
+androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+androidx-navigation-testing = { module = "androidx.navigation:navigation-testing", version.ref = "navigation" }
 coil-svg = { module = "io.coil-kt.coil3:coil-svg", version.ref = "coilBom" }
 desugarjdklibs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugarJdk" }
 coil-bom = { module = "io.coil-kt.coil3:coil-bom", version.ref = "coilBom" }
