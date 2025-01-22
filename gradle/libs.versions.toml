@@ -7,6 +7,7 @@ coreKtx = "1.15.0"
 dependencyVersions = "0.51.0"
 desugarJdk = "2.1.4"
 espressoCore = "3.6.1"
+graphicsShapes = "1.0.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 kotlin = "2.1.0"
@@ -22,6 +23,7 @@ ksp = "2.1.0-1.0.29"
 hilt = "2.55"
 
 [libraries]
+androidx-graphics-shapes = { module = "androidx.graphics:graphics-shapes", version.ref = "graphicsShapes" }
 androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycleRuntime" }
 androidx-lifecycle-viewmodel-compose-android = { module = "androidx.lifecycle:lifecycle-viewmodel-compose-android", version.ref = "lifecycleRuntime" }
 androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }

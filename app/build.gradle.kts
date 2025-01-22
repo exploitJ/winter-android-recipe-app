@@ -58,6 +58,7 @@ dependencies {
     implementation(libs.coil.svg)
 
     implementation(libs.androidx.material.icons.extended)
+    implementation(libs.androidx.graphics.shapes)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
