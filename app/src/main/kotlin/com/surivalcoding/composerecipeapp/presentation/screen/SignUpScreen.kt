@@ -6,15 +6,18 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.LocalMinimumInteractiveComponentSize
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -39,123 +42,127 @@ import com.surivalcoding.composerecipeapp.presentation.shared.theme.AppColors
 @Composable
 fun SignUpScreen(
     modifier: Modifier = Modifier,
+    onSubmit: () -> Unit = {},
+    onClickReturn: () -> Unit = {},
 ) {
-    val viewConfiguration = object : ViewConfiguration by LocalViewConfiguration.current {
-        override val minimumTouchTargetSize: DpSize
-            get() = DpSize(4.dp, 4.dp)
-
-    }
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .background(color = Color.White)
-            .padding(horizontal = 30.dp),
-        verticalArrangement = Arrangement.SpaceBetween,
-    ) {
-        Column(
-            modifier = Modifier.padding(vertical = 10.dp),
-            horizontalAlignment = Alignment.Start,
-            verticalArrangement = Arrangement.spacedBy(5.dp)
-        ) {
-            Text(
-                text = "Create an account",
-                style = AppTextStyles.largeTextBold
-            )
-            Text(
-                modifier = Modifier
-                    .padding(top = 5.dp)
-                    .fillMaxWidth(0.55f),
-                text = "Let's help you set up your account, it won't take long.",
-                overflow = TextOverflow.Ellipsis,
-                minLines = 2,
-                softWrap = true,
-                style = AppTextStyles.smallerTextRegular
-            )
-        }
+    Scaffold { innerPadding ->
 
         Column(
-            modifier = Modifier,
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically),
+            modifier = modifier
+                .fillMaxSize().systemBarsPadding().consumeWindowInsets(innerPadding)
+                .background(color = Color.White)
+                .padding(horizontal = 30.dp),
+            verticalArrangement = Arrangement.SpaceBetween,
         ) {
-            TextInput(
-                label = "Name",
-                placeholder = "Enter Email",
-                keyboardType = KeyboardType.Text,
-            )
-            TextInput(
-                label = "Email",
-                placeholder = "Enter Email",
-                keyboardType = KeyboardType.Email,
-            )
-            TextInput(
-                label = "Password",
-                placeholder = "Enter Password",
-                keyboardType = KeyboardType.Password,
-            )
-            TextInput(
-                label = "Confirm Password",
-                placeholder = "Enter Password",
-                keyboardType = KeyboardType.Password,
-            )
-
-            Row(
-                modifier = Modifier.align(Alignment.Start)
+            Column(
+                modifier = Modifier.padding(vertical = 10.dp),
+                horizontalAlignment = Alignment.Start,
+                verticalArrangement = Arrangement.spacedBy(5.dp)
             ) {
-                CompositionLocalProvider(LocalMinimumInteractiveComponentSize provides Dp.Unspecified) {
-                    Checkbox(
-                        modifier = Modifier
-                            .padding(horizontal = 5.dp)
-                            .size(17.dp)
-                            .border(
-                                width = 1.dp,
-                                shape = RoundedCornerShape(5.dp),
-                                color = AppColors.secondary100,
-                            )
-                            .align(Alignment.CenterVertically),
-                        checked = false, onCheckedChange = {},
-                        colors = CheckboxDefaults.colors().copy(
-                            checkedBorderColor = Color.Transparent,
-                            uncheckedBorderColor = Color.Transparent,
+                Text(
+                    text = "Create an account",
+                    style = AppTextStyles.largeTextBold
+                )
+                Text(
+                    modifier = Modifier
+                        .padding(top = 5.dp)
+                        .fillMaxWidth(0.55f),
+                    text = "Let's help you set up your account, it won't take long.",
+                    overflow = TextOverflow.Ellipsis,
+                    minLines = 2,
+                    softWrap = true,
+                    style = AppTextStyles.smallerTextRegular
+                )
+            }
+
+            Column(
+                modifier = Modifier,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically),
+            ) {
+                TextInput(
+                    label = "Name",
+                    placeholder = "Enter Email",
+                    keyboardType = KeyboardType.Text,
+                )
+                TextInput(
+                    label = "Email",
+                    placeholder = "Enter Email",
+                    keyboardType = KeyboardType.Email,
+                )
+                TextInput(
+                    label = "Password",
+                    placeholder = "Enter Password",
+                    keyboardType = KeyboardType.Password,
+                )
+                TextInput(
+                    label = "Confirm Password",
+                    placeholder = "Enter Password",
+                    keyboardType = KeyboardType.Password,
+                )
+
+                Row(
+                    modifier = Modifier.align(Alignment.Start)
+                ) {
+                    CompositionLocalProvider(LocalMinimumInteractiveComponentSize provides Dp.Unspecified) {
+                        Checkbox(
+                            modifier = Modifier
+                                .padding(horizontal = 5.dp)
+                                .size(17.dp)
+                                .border(
+                                    width = 1.dp,
+                                    shape = RoundedCornerShape(5.dp),
+                                    color = AppColors.secondary100,
+                                )
+                                .align(Alignment.CenterVertically),
+                            checked = false, onCheckedChange = {},
+                            colors = CheckboxDefaults.colors().copy(
+                                checkedBorderColor = Color.Transparent,
+                                uncheckedBorderColor = Color.Transparent,
+                            ),
+                        )
+                    }
+                    TextButton(
+                        onClick = {},
+                        colors = ButtonDefaults.textButtonColors().copy(
+                            contentColor = AppColors.secondary100
                         ),
-                    )
+                        contentPadding = PaddingValues(0.dp)
+                    ) {
+                        Text(
+                            text = "Accept terms & Condition",
+                            style = AppTextStyles.smallerTextRegular,
+                        )
+                    }
                 }
+                BigButton(text = "Sign Up", onClick = {
+                    onSubmit()
+                })
+
+                ThirdPartySignInDivider()
+                ThirdPartySignInCombo()
+            }
+            Row(
+                modifier = Modifier
+                    .padding(horizontal = 10.dp)
+                    .align(Alignment.CenterHorizontally),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(text = "Already a member?", style = AppTextStyles.smallerTextRegular)
                 TextButton(
-                    onClick = {},
+                    onClick = {
+                        onClickReturn()
+                    },
                     colors = ButtonDefaults.textButtonColors().copy(
                         contentColor = AppColors.secondary100
                     ),
                     contentPadding = PaddingValues(0.dp)
                 ) {
                     Text(
-                        text = "Accept terms & Condition",
-                        style = AppTextStyles.smallerTextRegular,
+                        text = "Sign In",
+                        style = AppTextStyles.smallerTextSemiBold
                     )
                 }
-            }
-            BigButton(text = "Sign Up", onClick = {})
-
-            ThirdPartySignInDivider()
-            ThirdPartySignInCombo()
-        }
-        Row(
-            modifier = Modifier
-                .padding(horizontal = 10.dp)
-                .align(Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(text = "Already a member?", style = AppTextStyles.smallerTextRegular)
-            TextButton(
-                onClick = {},
-                colors = ButtonDefaults.textButtonColors().copy(
-                    contentColor = AppColors.secondary100
-                ),
-                contentPadding = PaddingValues(0.dp)
-            ) {
-                Text(
-                    text = "Sign In",
-                    style = AppTextStyles.smallerTextSemiBold
-                )
             }
         }
     }

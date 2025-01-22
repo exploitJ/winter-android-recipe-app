@@ -4,6 +4,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.surivalcoding.composerecipeapp.R
 
@@ -15,18 +16,20 @@ object AppTextStyles {
     )
 
     // Title Text Styles
-    val titleTextBold = TextStyle(
+    val titleTextSemibold = TextStyle(
         fontSize = 50.sp,
-        lineHeight = 75.sp,
-        fontWeight = FontWeight.Bold,
-        fontFamily = poppinsFamily
+        lineHeight = 60.sp,
+        fontWeight = FontWeight.SemiBold,
+        fontFamily = poppinsFamily,
+        textAlign = TextAlign.Center,
     )
 
     val titleTextRegular = TextStyle(
         fontSize = 50.sp,
-        lineHeight = 75.sp,
+        lineHeight = 60.sp,
         fontWeight = FontWeight.Normal,
-        fontFamily = poppinsFamily
+        textAlign = TextAlign.Center,
+        fontFamily = poppinsFamily,
     )
 
     // Header Text Styles

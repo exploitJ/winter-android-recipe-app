@@ -35,23 +35,23 @@ private fun Button(
     enabled: Boolean = true,
     onClick: () -> Unit = {},
 ) {
-    var enabled = rememberSaveable { mutableStateOf(enabled) }
+    val buttonEnableState = rememberSaveable { mutableStateOf(enabled) }
 
     Box(
         modifier = modifier
             .background(
-                color = if (enabled.value) AppColors.primary100 else AppColors.gray4,
+                color = if (buttonEnableState.value) AppColors.primary100 else AppColors.gray4,
                 shape = RoundedCornerShape(10.dp),
             )
             .pointerInput(Unit) {
                 detectTapGestures(
-                    onPress = { offset ->
-                        enabled.value = false
+                    onPress = {
+                        buttonEnableState.value = false
                         awaitRelease()
-                        enabled.value = true
-                    }
+                        onClick()
+                        buttonEnableState.value = true
+                    },
                 )
-                onClick()
             },
         contentAlignment = Alignment.Center,
     ) {

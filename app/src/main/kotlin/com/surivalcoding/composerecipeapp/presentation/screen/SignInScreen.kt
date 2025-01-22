@@ -5,15 +5,18 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -37,78 +40,91 @@ import com.surivalcoding.composerecipeapp.presentation.shared.theme.AppColors
 @Composable
 fun SignInScreen(
     modifier: Modifier = Modifier,
+    onSubmit: () -> Unit = {},
+    onClickSignUp: () -> Unit = {},
+    onClickForgotPassword: () -> Unit = {},
 ) {
-    Column(
-        modifier = modifier
-            .fillMaxSize()
-            .background(color = Color.White)
-            .padding(horizontal = 30.dp),
-        verticalArrangement = Arrangement.SpaceEvenly,
-    ) {
+    Scaffold { innerPadding ->
         Column(
-            horizontalAlignment = Alignment.Start
+            modifier = modifier.systemBarsPadding()
+                .consumeWindowInsets(innerPadding)
+                .fillMaxSize()
+                .background(color = Color.White)
+                .padding(horizontal = 30.dp),
+            verticalArrangement = Arrangement.SpaceEvenly,
         ) {
-            Text(
-                text = "Hello,",
-                style = AppTextStyles.headerTextBold
-            )
-            Text(
-                text = "Welcome Back!",
-                style = AppTextStyles.largeTextRegular
-            )
-        }
-        Column(
-            modifier = Modifier,
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically),
-        ) {
-            TextInput(
-                label = "Email",
-                placeholder = "Enter Email",
-                keyboardType = KeyboardType.Email,
-            )
-            TextInput(
-                modifier = Modifier.padding(top = 10.dp),
-                label = "Enter Password",
-                placeholder = "Enter Password",
-                keyboardType = KeyboardType.Password,
-            )
-
-            TextButton(
-                modifier = Modifier
-                    .align(Alignment.Start),
-                onClick = {},
-                colors = ButtonDefaults.textButtonColors().copy(
-                    contentColor = AppColors.secondary100
-                ),
-                contentPadding = PaddingValues(0.dp)
+            Column(
+                horizontalAlignment = Alignment.Start
             ) {
                 Text(
-                    text = "Forgot Password?",
-                    style = AppTextStyles.smallerTextRegular,
+                    text = "Hello,",
+                    style = AppTextStyles.headerTextBold
+                )
+                Text(
+                    text = "Welcome Back!",
+                    style = AppTextStyles.largeTextRegular
                 )
             }
-            BigButton(text = "Sign In", onClick = {})
-
-            ThirdPartySignInDivider()
-            ThirdPartySignInCombo()
-
-        }
-        Row(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Text(text = "Don't have an account?", style = AppTextStyles.smallerTextRegular)
-            TextButton(onClick = {},
-                colors = ButtonDefaults.textButtonColors().copy(
-                    contentColor = AppColors.secondary100
-                ),
-                contentPadding = PaddingValues(0.dp)
+            Column(
+                modifier = Modifier,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(20.dp, Alignment.CenterVertically),
             ) {
-                Text(
-                    text = "Sign Up",
-                    style = AppTextStyles.smallerTextSemiBold
+                TextInput(
+                    label = "Email",
+                    placeholder = "Enter Email",
+                    keyboardType = KeyboardType.Email,
                 )
+                TextInput(
+                    modifier = Modifier.padding(top = 10.dp),
+                    label = "Enter Password",
+                    placeholder = "Enter Password",
+                    keyboardType = KeyboardType.Password,
+                )
+
+                TextButton(
+                    modifier = Modifier
+                        .align(Alignment.Start),
+                    onClick = {
+                        onClickForgotPassword()
+                    },
+                    colors = ButtonDefaults.textButtonColors().copy(
+                        contentColor = AppColors.secondary100
+                    ),
+                    contentPadding = PaddingValues(0.dp)
+                ) {
+                    Text(
+                        text = "Forgot Password?",
+                        style = AppTextStyles.smallerTextRegular,
+                    )
+                }
+                BigButton(text = "Sign In", onClick = {
+                    onSubmit()
+                })
+
+                ThirdPartySignInDivider()
+                ThirdPartySignInCombo()
+
+            }
+            Row(
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(text = "Don't have an account?", style = AppTextStyles.smallerTextRegular)
+                TextButton(
+                    onClick = {
+                        onClickSignUp()
+                    },
+                    colors = ButtonDefaults.textButtonColors().copy(
+                        contentColor = AppColors.secondary100
+                    ),
+                    contentPadding = PaddingValues(0.dp)
+                ) {
+                    Text(
+                        text = "Sign Up",
+                        style = AppTextStyles.smallerTextSemiBold
+                    )
+                }
             }
         }
     }
