@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kapt)
+    alias(libs.plugins.hilt)
 }
 
 android {
@@ -39,6 +41,9 @@ android {
         compose = true
         buildConfig = true
     }
+    hilt {
+        enableAggregatingTask = true
+    }
 }
 
 kotlin {
@@ -51,6 +56,17 @@ dependencies {
     val composeBom = platform(libs.androidx.compose.bom)
     implementation(composeBom)
     androidTestImplementation(composeBom)
+
+    implementation(libs.hilt)
+    implementation(libs.androidx.hilt.navigation.compose)
+    kapt(libs.hilt.compiler)
+    kapt(libs.androidx.hilt.compiler)
+
+    androidTestImplementation(libs.hilt.android.testing)
+    kaptAndroidTest(libs.hilt.compiler)
+
+    testImplementation(libs.hilt.android.testing)
+    kaptTest(libs.hilt.compiler)
 
     implementation(platform(libs.coil.bom))
     implementation(libs.coil.compose)
@@ -65,11 +81,16 @@ dependencies {
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose.android)
     implementation(libs.androidx.activity.compose)
+
+    implementation(libs.androidx.work.runtime.ktx)
+    androidTestImplementation(libs.androidx.work.testing)
+
     implementation(libs.androidx.ui)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.startup.runtime)
 
     implementation(libs.bundles.ktor.client)
     implementation(libs.kotlinx.datetime)
@@ -87,5 +108,8 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.ui.test.junit4)
     androidTestImplementation(libs.androidx.navigation.testing)
+}
 
+kapt {
+    correctErrorTypes = true
 }
