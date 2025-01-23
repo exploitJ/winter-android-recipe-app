@@ -9,7 +9,9 @@ import com.surivalcoding.composerecipeapp.data.test.DemoNetworkRecipeDataSource
 import com.surivalcoding.composerecipeapp.data.test.DemoNetworkUserDataSource
 import com.surivalcoding.composerecipeapp.data.test.FakeRecipeRepository
 import com.surivalcoding.composerecipeapp.data.test.FakeUserInfoRepository
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class RecipeApplication : Application(), SingletonImageLoader.Factory {
     override fun newImageLoader(context: PlatformContext): ImageLoader {
         return ImageLoader.Builder(context)

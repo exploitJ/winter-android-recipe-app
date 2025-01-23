@@ -4,25 +4,15 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.MenuBook
-import androidx.compose.material.icons.automirrored.twotone.ContactSupport
-import androidx.compose.material.icons.automirrored.twotone.List
-import androidx.compose.material.icons.automirrored.twotone.MenuBook
-import androidx.compose.material.icons.filled.Abc
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material.icons.filled.BookmarkBorder
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.rounded.Home
 import androidx.compose.material.icons.twotone.BookmarkBorder
 import androidx.compose.material.icons.twotone.Home
 import androidx.compose.material.icons.twotone.Notifications
@@ -46,19 +36,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.compose.rememberNavController
 import com.surivalcoding.composerecipeapp.presentation.navigation.TopLevelRoute
 import com.surivalcoding.composerecipeapp.presentation.shared.CutoutShape
 import com.surivalcoding.composerecipeapp.presentation.shared.boxShadow
 import com.surivalcoding.composerecipeapp.presentation.shared.theme.AppColors
-import kotlinx.serialization.Serializable
 
 
 @Composable
 fun <T : Any> NavigationBarWithFab(
     modifier: Modifier = Modifier,
     onFabClick: () -> Unit = {},
-    contentData: List<TopLevelRoute<T>>,
+    contentData: List<TopLevelRoute<out T>>,
 ) {
     var selectedItem by rememberSaveable { mutableIntStateOf(0) }
     val fabSocketShape = remember { CutoutShape(cutoutWidth = 120.dp) }
