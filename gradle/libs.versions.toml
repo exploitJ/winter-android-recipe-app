@@ -1,43 +1,48 @@
 [versions]
-activityCompose = "1.10.0"
-agp = "8.8.0"
 coilBom = "3.0.4"
 composeBom = "2025.01.00"
-coreKtx = "1.15.0"
+
+minSdk = "24"
+compileSdk = "35"
+targetSdk = "35"
+buildTools = "35.0.1"
+
+kotlin = "2.1.0"
+ksp = "2.1.0-1.0.29"
+agp = "8.8.0"
+
 dependencyVersions = "0.52.0"
 desugarJdk = "2.1.4"
+junit = "4.13.2"
+junitAndroid = "1.2.1"
 espressoCore = "3.6.1"
+slf4j = "1.7.36"
+
 graphicsShapes = "1.0.1"
+materialIconsExtended = "1.7.6"
+
+coreKtx = "1.15.0"
+activityCompose = "1.10.0"
+navigation = "2.8.5"
+lifecycleRuntime = "2.8.7"
 hilt = "2.55"
 hiltExtension = "1.2.0"
-junit = "4.13.2"
-junitVersion = "1.2.1"
-koinBom = "4.1.0-beta5"
-kotlin = "2.1.0"
-lifecycleRuntime = "2.8.7"
-ktor = "3.0.3"
-materialIconsExtended = "1.7.6"
-navigation = "2.8.5"
-slf4j = "1.7.36"
-coroutines = "1.10.1"
 datetime = "0.6.1"
 serialization = "1.8.0"
-ksp = "2.1.0-1.0.29"
+coroutines = "1.10.1"
+ktor = "3.0.3"
 startupRuntime = "1.2.0"
 workRuntimeKtx = "2.10.0"
 
 [libraries]
 androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
-androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
-androidx-work-testing = { module = "androidx.work:work-testing", version.ref = "workRuntimeKtx" }
-koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koinBom" }
 coil-bom = { module = "io.coil-kt.coil3:coil-bom", version.ref = "coilBom" }
 
-desugarjdklibs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugarJdk" }
+desugarJdkLibs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugarJdk" }
 androidx-graphics-shapes = { module = "androidx.graphics:graphics-shapes", version.ref = "graphicsShapes" }
 androidx-lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycleRuntime" }
 androidx-lifecycle-viewmodel-compose-android = { module = "androidx.lifecycle:lifecycle-viewmodel-compose-android", version.ref = "lifecycleRuntime" }
-androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
+androidx-materialIconsExtended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
 androidx-navigation-testing = { module = "androidx.navigation:navigation-testing", version.ref = "navigation" }
 androidx-startup-runtime = { module = "androidx.startup:startup-runtime", version.ref = "startupRuntime" }
@@ -45,34 +50,24 @@ androidx-startup-runtime = { module = "androidx.startup:startup-runtime", versio
 hilt = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt" }
-androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltExtension" }
-androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltExtension" }
-androidx-hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "hiltExtension" }
+hilt-compiler-androidx = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltExtension" }
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltExtension" }
+androidx-work-runtime = { module = "androidx.work:work-runtime-ktx", version.ref = "workRuntimeKtx" }
+androidx-work-testing = { module = "androidx.work:work-testing", version.ref = "workRuntimeKtx" }
+hilt-work = { module = "androidx.hilt:hilt-work", version.ref = "hiltExtension" }
 
-coil-svg = { module = "io.coil-kt.coil3:coil-svg", version.ref = "coilBom" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose" }
 coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp" }
 coil-test = { module = "io.coil-kt.coil3:coil-test" }
-
-koin-core = { module = "io.insert-koin:koin-core" }
-koin-core-coroutines = { module = "io.insert-koin:koin-core-coroutines" }
-koin-android = { module = "io.insert-koin:koin-android" }
-koin-android-test = { module = "io.insert-koin:koin-android-test" }
-koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose" }
-koin-androidx-compose-navigation = { module = "io.insert-koin:koin-androidx-compose-navigation" }
-koin-androidx-navigation = { module = "io.insert-koin:koin-androidx-navigation" }
-koin-androidx-startup = { module = "io.insert-koin:koin-androidx-startup" }
-koin-androidx-workmanager = { module = "io.insert-koin:koin-androidx-workmanager" }
-koin-ktor = { module = "io.insert-koin:koin-ktor" }
-koin-logger-slf4j = { module = "io.insert-koin:koin-logger-slf4j" }
-koin-test = { module = "io.insert-koin:koin-test" }
-koin-test-junit4 = { module = "io.insert-koin:koin-test-junit4" }
+coil-svg = { module = "io.coil-kt.coil3:coil-svg" }
+coil-gif = { module = "io.coil-kt.coil3:coil-gif" }
+coil-networkCacheControl = { module = "io.coil-kt.coil3:coil-network-cache-control" }
 
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-mock = { module = "io.ktor:ktor-client-mock", version.ref = "ktor" }
-ktor-plugin-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
-ktor-plugin-serialization-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
+ktor-plugin-contentNegotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktor" }
+ktor-plugin-serializationJson = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-plugin-auth = { module = "io.ktor:ktor-client-auth", version.ref = "ktor" }
 ktor-plugin-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor" }
 ktor-plugin-logging-backend = { module = "org.slf4j:slf4j-android", version.ref = "slf4j" }
@@ -83,10 +78,10 @@ kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
 
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
-androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+androidx-core = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCore" }
-androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junitVersion" }
-androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntime" }
+androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junitAndroid" }
+androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntime" }
 
 androidx-material3 = { module = "androidx.compose.material3:material3" }
 androidx-ui = { module = "androidx.compose.ui:ui" }
@@ -105,8 +100,6 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
-kapt = { id = "org.jetbrains.kotlin.kapt" }
 
 [bundles]
-ktor-client = ["ktor-client-core", "ktor-client-okhttp", "ktor-plugin-auth", "ktor-plugin-content-negotiation", "ktor-plugin-logging", "ktor-plugin-logging-backend", "ktor-plugin-serialization-json"]
-koin = ["koin-android", "koin-androidx-compose", "koin-androidx-navigation", "koin-androidx-compose-navigation", "koin-core", "koin-core-coroutines"]
+ktor-client = ["ktor-client-core", "ktor-client-okhttp", "ktor-plugin-auth", "ktor-plugin-contentNegotiation", "ktor-plugin-logging", "ktor-plugin-logging-backend", "ktor-plugin-serializationJson"]
