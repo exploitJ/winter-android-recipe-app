@@ -11,6 +11,7 @@ plugins {
 
 allprojects {
     tasks.withType<DependencyUpdatesTask> {
+        notCompatibleWithConfigurationCache("idk")
         gradleReleaseChannel = "current"
         rejectVersionIf {
             isNonStable(candidate.version)

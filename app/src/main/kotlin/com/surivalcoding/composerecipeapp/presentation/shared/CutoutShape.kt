@@ -18,13 +18,13 @@ class CutoutShape(
         density: Density,
     ): Outline {
         val pxWidth = with(density) { cutoutWidth.toPx() }
-        val pxHeight = pxWidth / 3f
+        val pxHeight = (pxWidth / 2.8f)
 
         // Calculate control points for smooth transition
         val centerX = size.width / 2
 
-        val x1Modifier = 0.28f
-        val x2Modifier = 0.23f
+        val x1Modifier = 0.25f
+        val x2Modifier = 0.22f
 
         val y1Modifier = 0f
         val y2Modifier = 1f
@@ -32,7 +32,7 @@ class CutoutShape(
 
         val topLeft = Offset(centerX - pxWidth / 2, 0f)
         val bottomRight = Offset(centerX + pxWidth / 2, pxHeight)
-        val delta =  bottomRight - topLeft
+        val delta = bottomRight - topLeft
 
         return Outline.Generic(
             Path().apply {
@@ -49,8 +49,8 @@ class CutoutShape(
                     pxWidth / 2, delta.y * y3Modifier
                 )
                 cubicTo(
-                    bottomRight.x - delta.x* x2Modifier, bottomRight.y * y2Modifier,
-                    bottomRight.x - delta.x* x1Modifier, bottomRight.y * y1Modifier,
+                    bottomRight.x - delta.x * x2Modifier, bottomRight.y * y2Modifier,
+                    bottomRight.x - delta.x * x1Modifier, bottomRight.y * y1Modifier,
                     bottomRight.x, 0f
                 )
             })

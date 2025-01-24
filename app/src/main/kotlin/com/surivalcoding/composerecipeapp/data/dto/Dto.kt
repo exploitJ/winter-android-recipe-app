@@ -5,17 +5,17 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class RecipeResponse(
-    val getRecipes: List<RecipePostDto>
+    val getRecipes: List<RecipePostDto>,
 )
 
 @Serializable
 data class NotificationsResponse(
-    val getNotifications: List<NotificationDto>
+    val getNotifications: List<NotificationDto>,
 )
 
 @Serializable
 data class UserResponse(
-    val getCurrentUser: UserDto
+    val getCurrentUser: UserDto,
 )
 
 @Serializable
@@ -31,21 +31,21 @@ data class UserDto(
     val bio: String,
     val occupation: String,
     val address: String,
-    val savedPosts: List<String> = emptyList()
+    val savedPosts: List<String> = emptyList(),
 )
 
 @Serializable
 data class MinimalUserDto(
     val id: String,
     val nickname: String,
-    val profileImage: MediaDto
+    val profileImage: MediaDto,
 )
 
 @Serializable
 data class MediaDto(
     val type: String,
     val url: String,
-    val thumbnail: MediaDto? = null
+    val thumbnail: MediaDto? = null,
 )
 
 @Serializable
@@ -59,7 +59,7 @@ data class RecipePostDto(
     val createdAt: Instant,
     val thumbnail: MediaDto?,
     val media: List<MediaDto> = emptyList(),
-    val content: RecipeDto
+    val content: RecipeDto,
 )
 
 @Serializable
@@ -69,7 +69,7 @@ data class RecipeDto(
     val starRating: Float,
     val cookingTimeInMinutes: Int,
     val servings: Int,
-    val tags: List<String>
+    val tags: List<String>,
 )
 
 @Serializable
@@ -77,13 +77,13 @@ data class IngredientDto(
     val name: String,
     val shortName: String,
     val thumbnail: MediaDto,
-    val amountInGrams: Int
+    val amountInGrams: Int,
 )
 
 @Serializable
 data class StepsDto(
     val title: String,
-    val description: String
+    val description: String,
 )
 
 @Serializable
@@ -93,7 +93,7 @@ data class CommentDto(
     val likes: List<MinimalUserDto> = emptyList(),
     val dislike: List<MinimalUserDto> = emptyList(),
     val editedAt: Instant,
-    val createdAt: Instant
+    val createdAt: Instant,
 )
 
 @Serializable
@@ -103,13 +103,13 @@ data class NotificationDto(
     val sentAt: Instant,
     val recipient: MinimalUserDto,
     val isRead: Boolean,
-    val linkedPost: MinimalPostDto?
+    val linkedPost: MinimalPostDto?,
 )
 
 @Serializable
 data class MinimalPostDto(
     val id: String,
     val title: String,
-    val thumbnail: MediaDto?
+    val thumbnail: MediaDto?,
 )
 

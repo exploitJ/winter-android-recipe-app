@@ -21,7 +21,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.surivalcoding.composerecipeapp.presentation.shared.AppTextStyles
 import com.surivalcoding.composerecipeapp.presentation.shared.theme.AppColors
-import kotlin.String
 
 
 @Composable

@@ -6,8 +6,6 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -27,39 +25,46 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.surivalcoding.composerecipeapp.presentation.navigation.TopLevelRoute
+import androidx.navigation.NavController
+import androidx.navigation.NavDestination.Companion.hasRoute
+import androidx.navigation.NavDestination.Companion.hierarchy
+import androidx.navigation.NavGraph.Companion.findStartDestination
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import com.surivalcoding.composerecipeapp.presentation.screen.home.HomeRoute
 import com.surivalcoding.composerecipeapp.presentation.shared.CutoutShape
 import com.surivalcoding.composerecipeapp.presentation.shared.boxShadow
 import com.surivalcoding.composerecipeapp.presentation.shared.theme.AppColors
 
+data class TopLevelNavigationItem<T : Any>(
+    val name: String,
+    val route: T,
+    val icon: ImageVector,
+)
 
 @Composable
 fun <T : Any> NavigationBarWithFab(
     modifier: Modifier = Modifier,
     onFabClick: () -> Unit = {},
-    contentData: List<TopLevelRoute<out T>>,
+    navController: NavController,
+    contentData: List<TopLevelNavigationItem<out T>>,
 ) {
-    var selectedItem by rememberSaveable { mutableIntStateOf(0) }
     val fabSocketShape = remember { CutoutShape(cutoutWidth = 120.dp) }
 
-    Box(
-        modifier = modifier
-            .fillMaxWidth()
-            .height(120.dp)
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val currentDestination = navBackStackEntry?.destination
 
-    ) {
+    Box {
         Surface(
             modifier = Modifier
-                .padding(top = 16.dp)
+                .padding(top = 14.dp)
                 .align(Alignment.BottomEnd)
                 .boxShadow(
                     shape = fabSocketShape,
@@ -70,18 +75,27 @@ fun <T : Any> NavigationBarWithFab(
         ) {
             NavigationBar(
                 containerColor = Color.White,
-                modifier = Modifier.fillMaxSize(),
             ) {
-                for (index in 0..<contentData.size / 2) {
-                    NavItem(selectedItem == index, contentData[index]) {
-                        selectedItem = index
+                for (index in contentData.indices) {
+                    if (index == contentData.size / 2) {
+                        Spacer(Modifier.size(80.dp))
                     }
-                }
-                Spacer(Modifier.size(80.dp))
-                for (index in contentData.size / 2..<contentData.size) {
+
                     val topLevelRoute = contentData[index]
-                    NavItem(selectedItem == index, topLevelRoute) {
-                        selectedItem = index
+                    NavItem(selected = currentDestination?.hierarchy?.any {
+                        it.hasRoute(
+                            topLevelRoute.route::class
+                        )
+                    } == true,
+                        topLevelRoute) {
+                        navController.navigate(topLevelRoute.route) {
+                            popUpTo(navController.graph.findStartDestination().id) {
+                                saveState = true
+                                inclusive = true
+                            }
+                            launchSingleTop = true
+                            restoreState = true
+                        }
                     }
                 }
             }
@@ -94,7 +108,7 @@ fun <T : Any> NavigationBarWithFab(
             elevation = FloatingActionButtonDefaults.loweredElevation(),
             shape = CircleShape,
             onClick = onFabClick,
-            ) {
+        ) {
             Icon(
                 tint = Color.White,
                 imageVector = Icons.Filled.Add,
@@ -106,8 +120,8 @@ fun <T : Any> NavigationBarWithFab(
 
 @Composable
 private fun <T : Any> RowScope.NavItem(
-    isSelected: Boolean,
-    topLevelRoute: TopLevelRoute<T>,
+    selected: Boolean,
+    topLevelRoute: TopLevelNavigationItem<T>,
     onClick: () -> Unit,
 ) {
     NavigationBarItem(
@@ -116,7 +130,7 @@ private fun <T : Any> RowScope.NavItem(
             selectedIndicatorColor = Color.Transparent,
             selectedIconColor = AppColors.primary100
         ),
-        selected = isSelected,
+        selected = selected,
         onClick = onClick,
         icon = {
             Icon(
@@ -128,24 +142,28 @@ private fun <T : Any> RowScope.NavItem(
     )
 }
 
-@Preview
+@Preview(showSystemUi = true)
 @Composable
 private fun BottomBarWithFabPreview() {
 
     val list = listOf(
-        TopLevelRoute("Home", App.Home, Icons.TwoTone.Home),
-        TopLevelRoute("Home", App.Home, Icons.TwoTone.BookmarkBorder),
-        TopLevelRoute("Home", App.Home, Icons.TwoTone.Notifications),
-        TopLevelRoute("Home", App.Home, Icons.TwoTone.Person),
+        TopLevelNavigationItem("Home", HomeRoute, Icons.TwoTone.Home),
+        TopLevelNavigationItem("Home", HomeRoute, Icons.TwoTone.BookmarkBorder),
+        TopLevelNavigationItem("Home", HomeRoute, Icons.TwoTone.Notifications),
+        TopLevelNavigationItem("Home", HomeRoute, Icons.TwoTone.Person),
     )
 
     Scaffold(
         bottomBar = {
-            NavigationBarWithFab(contentData = list)
+            NavigationBarWithFab(
+                contentData = list,
+                navController = rememberNavController(),
+            )
         }
     ) { innerPadding ->
         Box(
-            Modifier.consumeWindowInsets(innerPadding)
+            Modifier
+                .consumeWindowInsets(innerPadding)
                 .fillMaxSize()
                 .background(color = Color.Yellow.copy(alpha = 0.2f))
         )

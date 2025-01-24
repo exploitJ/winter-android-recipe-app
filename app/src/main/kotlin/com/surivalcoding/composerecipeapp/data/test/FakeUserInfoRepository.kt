@@ -1,15 +1,16 @@
 package com.surivalcoding.composerecipeapp.data.test
 
-import com.surivalcoding.composerecipeapp.data.model.Email
-import com.surivalcoding.composerecipeapp.data.model.Post
-import com.surivalcoding.composerecipeapp.data.model.User
-import com.surivalcoding.composerecipeapp.data.model.UserId
-import com.surivalcoding.composerecipeapp.data.repository.UserInfoRepository
 import com.surivalcoding.composerecipeapp.data.util.toDomainModel
+import com.surivalcoding.composerecipeapp.domain.model.Email
+import com.surivalcoding.composerecipeapp.domain.model.Post
+import com.surivalcoding.composerecipeapp.domain.model.User
+import com.surivalcoding.composerecipeapp.domain.model.UserId
+import com.surivalcoding.composerecipeapp.domain.repository.UserInfoRepository
 import java.util.UUID
+import javax.inject.Inject
 
-class FakeUserInfoRepository(
-    private val fakeDataSource: DemoNetworkUserDataSource,
+class FakeUserInfoRepository @Inject constructor(
+    private val fakeDataSource: DemoNetworkDataSource,
 ) : UserInfoRepository {
     override suspend fun getCurrentUser(): User {
         return fakeDataSource.getUser(UserId(UUID.randomUUID())).getOrThrow().toDomainModel()

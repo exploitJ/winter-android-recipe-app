@@ -25,7 +25,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.surivalcoding.composerecipeapp.presentation.shared.AppTextStyles
 import com.surivalcoding.composerecipeapp.presentation.shared.theme.AppColors
-import kotlin.String
 
 @Composable
 private fun Button(
@@ -77,9 +76,8 @@ fun BigButton(
         text = {
             Text(
                 text = text,
-                style = AppTextStyles.normalTextBold.copy(
-                    color = Color.White,
-                ),
+                style = AppTextStyles.normalTextBold,
+                color = Color.White,
             )
         },
         icon = {
@@ -110,9 +108,8 @@ fun MediumButton(
         text = {
             Text(
                 text = text,
-                style = AppTextStyles.normalTextBold.copy(
-                    color = Color.White,
-                ),
+                style = AppTextStyles.normalTextBold,
+                color = Color.White,
             )
         },
         icon = {
@@ -143,9 +140,8 @@ fun SmallButton(
         text = {
             Text(
                 text = text,
-                style = AppTextStyles.smallTextBold.copy(
-                    color = Color.White,
-                ),
+                style = AppTextStyles.smallTextBold,
+                color = Color.White,
             )
         },
         onClick = {

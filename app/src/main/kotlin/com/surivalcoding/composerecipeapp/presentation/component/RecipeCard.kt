@@ -69,14 +69,16 @@ fun RecipeCard(
                 contentScale = ContentScale.Crop,
                 contentDescription = null,
             )
-            Box(modifier = Modifier
-                .fillMaxSize()
-                .background(
-                    brush = Brush.verticalGradient(
-                        colors = listOf(Color.Transparent, Color.Black),
-                    ),
-                    alpha = 0.8f
-                ))
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(
+                        brush = Brush.verticalGradient(
+                            colors = listOf(Color.Transparent, Color.Black),
+                        ),
+                        alpha = 0.8f
+                    )
+            )
             Row(
                 modifier = Modifier
                     .padding(10.dp)
@@ -88,11 +90,13 @@ fun RecipeCard(
                     Text(
                         modifier = Modifier.fillMaxWidth(0.6f),
                         text = title,
-                        style = AppTextStyles.smallTextBold.copy(color = Color.White),
+                        style = AppTextStyles.smallTextBold,
+                        color = Color.White,
                     )
                     Text(
                         text = "By $author",
-                        style = AppTextStyles.smallerTextSmallLabel.copy(color = AppColors.gray4)
+                        style = AppTextStyles.smallerTextSmallLabel,
+                        color = AppColors.gray4
                     )
                 }
                 Column(
@@ -133,7 +137,8 @@ fun RecipeCard(
                         )
                         Text(
                             text = "$cookingTimeInMinutes min",
-                            style = AppTextStyles.smallerTextRegular.copy(color = AppColors.gray4)
+                            style = AppTextStyles.smallerTextRegular,
+                            color = AppColors.gray4
                         )
                         IconToggleButton(
                             checked = false, onCheckedChange = {},

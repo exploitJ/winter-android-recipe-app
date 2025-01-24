@@ -29,6 +29,10 @@ import coil3.compose.LocalAsyncImagePreviewHandler
 import com.surivalcoding.composerecipeapp.R
 import com.surivalcoding.composerecipeapp.presentation.component.BigButton
 import com.surivalcoding.composerecipeapp.presentation.shared.AppTextStyles
+import kotlinx.serialization.Serializable
+
+@Serializable
+data object GreetingRoute
 
 @Composable
 fun GreetingScreen(
