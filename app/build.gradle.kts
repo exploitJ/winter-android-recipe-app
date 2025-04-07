@@ -40,12 +40,13 @@ android {
     buildFeatures {
         compose = true
     }
-    room {
-        schemaDirectory("$projectDir/schemas")
-    }
-    hilt {
-        enableAggregatingTask = true
-    }
+}
+
+room {
+    schemaDirectory("$projectDir/schemas")
+}
+hilt {
+    enableAggregatingTask = true
 }
 
 kotlin {
