@@ -34,7 +34,8 @@ fun SearchRecipeScreen(
             .background(color = Color.White)
             .padding(PaddingValues(12.dp).calculateTopPadding()),
         topBar = {
-            CenterAlignedTopAppBar(title = { Text(text = "Search Recipes") },
+            CenterAlignedTopAppBar(
+                title = { Text(text = "Search Recipes") },
                 actions = {
                     IconButton(onClick = {}) {
                         Icon(
