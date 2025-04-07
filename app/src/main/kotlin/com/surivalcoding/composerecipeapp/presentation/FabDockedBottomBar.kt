@@ -35,9 +35,9 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavDestination.Companion.hierarchy
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.surivalcoding.composerecipeapp.presentation.screen.TopLevel
 import com.surivalcoding.composerecipeapp.presentation.screen.home.HomeRoute
 import com.surivalcoding.composerecipeapp.presentation.shared.CutoutShape
 import com.surivalcoding.composerecipeapp.presentation.shared.boxShadow
@@ -82,14 +82,20 @@ fun <T : Any> NavigationBarWithFab(
                     }
 
                     val topLevelRoute = contentData[index]
-                    NavItem(selected = currentDestination?.hierarchy?.any {
+                    val isSelected = currentDestination?.hierarchy?.any {
                         it.hasRoute(
                             topLevelRoute.route::class
                         )
-                    } == true,
-                        topLevelRoute) {
+                    } == true
+                    NavItem(
+                        selected = isSelected,
+                        topLevelRoute
+                    ) {
+                        if (isSelected) {
+                            return@NavItem
+                        }
                         navController.navigate(topLevelRoute.route) {
-                            popUpTo(navController.graph.findStartDestination().id) {
+                            popUpTo<TopLevel.Navigation> {
                                 saveState = true
                                 inclusive = true
                             }
