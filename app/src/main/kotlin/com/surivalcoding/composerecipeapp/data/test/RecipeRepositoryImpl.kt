@@ -15,17 +15,17 @@ class RecipeRepositoryImpl @Inject constructor(
     private val userDataSource: UserDataSource,
     private val recipeDataSource: RecipeDataSource,
 ) : RecipeRepository {
+    override suspend fun getAll(): Set<Post<Recipe>> = getRecipes()
+
     override suspend fun getSavedRecipes(id: UserId): List<Post<Recipe>> {
         val currentUser = userDataSource.getUser(id).getOrNull() ?: return emptyList()
-        val responses = recipeDataSource.getRecipe().getOrNull()?.getRecipes ?: return emptyList()
+        val recipes = getRecipes()
 
         val savedPosts = currentUser.toDomainModel().savedPosts
-        return responses.map { it.toDomainModel() }
-            .filter {
-                savedPosts.contains(it.id)
-            }
+        return recipes.filter {
+            savedPosts.contains(it.id)
+        }
     }
-
 
     override suspend fun getRecentPosts(amount: Int): List<Post<Recipe>> {
         val responses = recipeDataSource.getRecipe().getOrNull()?.getRecipes ?: emptyList()
@@ -72,4 +72,10 @@ class RecipeRepositoryImpl @Inject constructor(
         TODO("Not yet implemented")
     }
 
+    private suspend fun getRecipes(): Set<Post<Recipe>> {
+        val response = recipeDataSource.getRecipe().getOrNull()?.getRecipes ?: emptyList()
+        return response.map { it.toDomainModel() }
+            .toSet()
+    }
 }
+

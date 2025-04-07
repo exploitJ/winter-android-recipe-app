@@ -1,6 +1,5 @@
 package com.surivalcoding.composerecipeapp.presentation.component
 
-import android.graphics.drawable.ColorDrawable
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -20,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.graphics.drawable.toDrawable
 import coil3.annotation.ExperimentalCoilApi
 import coil3.asImage
 import coil3.compose.AsyncImage
@@ -76,7 +76,7 @@ fun IngredientItem(
 @Composable
 private fun IngredientItemShowcase() {
     val previewHandler = AsyncImagePreviewHandler {
-        ColorDrawable(Color.Blue.toArgb()).asImage()
+        Color.Blue.toArgb().toDrawable().asImage()
     }
 
     CompositionLocalProvider(LocalAsyncImagePreviewHandler provides previewHandler) {
