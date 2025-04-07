@@ -35,7 +35,14 @@
         }
       },
       "isRead": true,
-      "linkedPost": null
+      "linkedPost": {
+        "id": "123e4567-e89b-12d3-a456-426614174002",
+        "title": "Chocolate Lava Cake",
+        "thumbnail": {
+          "type": "image",
+          "url": "https://picsum.photos/802/602"
+        }
+      }
     },
     {
       "title": "Recipe Liked",
@@ -72,7 +79,168 @@
         }
       },
       "isRead": true,
-      "linkedPost": null
+      "linkedPost": {
+        "id": "123e4567-e89b-12d3-a456-426614174002",
+        "title": "Chocolate Lava Cake",
+        "thumbnail": {
+          "type": "image",
+          "url": "https://picsum.photos/802/602"
+        }
+      }
+    },
+    {
+      "title": "Weekly Digest",
+      "contents": "Your recipes reached 1,000+ views this week!",
+      "sentAt": "2024-01-16T08:00:00Z",
+      "recipient": {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "nickname": "chef_mike",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/400/400"
+        }
+      },
+      "isRead": true,
+      "linkedPost": {
+        "id": "123e4567-e89b-12d3-a456-426614174002",
+        "title": "Chocolate Lava Cake",
+        "thumbnail": {
+          "type": "image",
+          "url": "https://picsum.photos/802/602"
+        }
+      }
+    },
+    {
+      "title": "Weekly Digest",
+      "contents": "Your recipes reached 1,000+ views this week!",
+      "sentAt": "2024-01-16T08:00:00Z",
+      "recipient": {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "nickname": "chef_mike",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/400/400"
+        }
+      },
+      "isRead": true,
+      "linkedPost": {
+        "id": "123e4567-e89b-12d3-a456-426614174002",
+        "title": "Chocolate Lava Cake",
+        "thumbnail": {
+          "type": "image",
+          "url": "https://picsum.photos/802/602"
+        }
+      }
+    },
+    {
+      "title": "Weekly Digest",
+      "contents": "Your recipes reached 1,000+ views this week!",
+      "sentAt": "2024-01-16T08:00:00Z",
+      "recipient": {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "nickname": "chef_mike",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/400/400"
+        }
+      },
+      "isRead": true,
+      "linkedPost": {
+        "id": "123e4567-e89b-12d3-a456-426614174002",
+        "title": "Chocolate Lava Cake",
+        "thumbnail": {
+          "type": "image",
+          "url": "https://picsum.photos/802/602"
+        }
+      }
+    },
+    {
+      "title": "Weekly Digest",
+      "contents": "Your recipes reached 1,000+ views this week!",
+      "sentAt": "2024-01-16T08:00:00Z",
+      "recipient": {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "nickname": "chef_mike",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/400/400"
+        }
+      },
+      "isRead": true,
+      "linkedPost": {
+        "id": "123e4567-e89b-12d3-a456-426614174002",
+        "title": "Chocolate Lava Cake",
+        "thumbnail": {
+          "type": "image",
+          "url": "https://picsum.photos/802/602"
+        }
+      }
+    },
+    {
+      "title": "Weekly Digest",
+      "contents": "Your recipes reached 1,000+ views this week!",
+      "sentAt": "2024-01-16T08:00:00Z",
+      "recipient": {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "nickname": "chef_mike",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/400/400"
+        }
+      },
+      "isRead": true,
+      "linkedPost": {
+        "id": "123e4567-e89b-12d3-a456-426614174002",
+        "title": "Chocolate Lava Cake",
+        "thumbnail": {
+          "type": "image",
+          "url": "https://picsum.photos/802/602"
+        }
+      }
+    },
+    {
+      "title": "Weekly Digest",
+      "contents": "Your recipes reached 1,000+ views this week!",
+      "sentAt": "2024-01-16T08:00:00Z",
+      "recipient": {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "nickname": "chef_mike",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/400/400"
+        }
+      },
+      "isRead": true,
+      "linkedPost": {
+        "id": "123e4567-e89b-12d3-a456-426614174002",
+        "title": "Chocolate Lava Cake",
+        "thumbnail": {
+          "type": "image",
+          "url": "https://picsum.photos/802/602"
+        }
+      }
+    },
+    {
+      "title": "Weekly Digest",
+      "contents": "Your recipes reached 1,000+ views this week!",
+      "sentAt": "2024-01-16T08:00:00Z",
+      "recipient": {
+        "id": "550e8400-e29b-41d4-a716-446655440000",
+        "nickname": "chef_mike",
+        "profileImage": {
+          "type": "image",
+          "url": "https://picsum.photos/400/400"
+        }
+      },
+      "isRead": true,
+      "linkedPost": {
+        "id": "123e4567-e89b-12d3-a456-426614174002",
+        "title": "Chocolate Lava Cake",
+        "thumbnail": {
+          "type": "image",
+          "url": "https://picsum.photos/802/602"
+        }
+      }
     },
     {
       "title": "Recipe Featured",
