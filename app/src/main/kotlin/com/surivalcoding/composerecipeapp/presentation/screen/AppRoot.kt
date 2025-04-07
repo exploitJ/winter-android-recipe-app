@@ -7,7 +7,6 @@ import androidx.compose.material.icons.twotone.Notifications
 import androidx.compose.material.icons.twotone.Person
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
@@ -18,11 +17,13 @@ import androidx.navigation.navigation
 import com.surivalcoding.composerecipeapp.presentation.NavigationBarWithFab
 import com.surivalcoding.composerecipeapp.presentation.TopLevelNavigationItem
 import com.surivalcoding.composerecipeapp.presentation.screen.bookmarks.SavedRecipesRoute
-import com.surivalcoding.composerecipeapp.presentation.screen.bookmarks.savedRecipesScreen
+import com.surivalcoding.composerecipeapp.presentation.screen.bookmarks.savedRecipesRoute
 import com.surivalcoding.composerecipeapp.presentation.screen.home.HomeRoute
-import com.surivalcoding.composerecipeapp.presentation.screen.home.homeScreen
+import com.surivalcoding.composerecipeapp.presentation.screen.home.homeScreenRoute
 import com.surivalcoding.composerecipeapp.presentation.screen.mypage.ProfileRoute
+import com.surivalcoding.composerecipeapp.presentation.screen.mypage.profileScreenRoute
 import com.surivalcoding.composerecipeapp.presentation.screen.notification.NotificationRoute
+import com.surivalcoding.composerecipeapp.presentation.screen.notification.notificationScreenRoute
 import com.surivalcoding.composerecipeapp.presentation.screen.signin.SignInRoute
 import kotlinx.serialization.Serializable
 
@@ -51,7 +52,6 @@ private val navigationItems = listOf(
 
 @Composable
 fun AppNavHost() {
-
     val navController = rememberNavController()
     Scaffold(
         bottomBar = {
@@ -67,11 +67,17 @@ fun AppNavHost() {
         ) {
             val bottomBarPadding = innerPadding.calculateBottomPadding()
             navigation<TopLevel.Navigation>(startDestination = HomeRoute) {
-                homeScreen(
+                homeScreenRoute(
                     bottomPadding = bottomBarPadding
                 )
-                savedRecipesScreen(
-                    padding = bottomBarPadding
+                savedRecipesRoute(
+                    bottomPadding = bottomBarPadding
+                )
+                notificationScreenRoute(
+                    bottomPadding = bottomBarPadding
+                )
+                profileScreenRoute(
+                    bottomPadding = bottomBarPadding
                 )
             }
         }
@@ -98,11 +104,3 @@ fun NavController.navigateToApp() {
         }
     })
 }
-
-@Preview(showSystemUi = true)
-@Composable
-private fun AppRootPreview() {
-    AppNavHost()
-}
-
-

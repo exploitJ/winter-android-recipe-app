@@ -41,6 +41,7 @@ fun TabContainer(
     scrollPadding: PaddingValues = PaddingValues(0.dp),
     labels: List<String>,
     selected: Int = 0,
+    onValueChange: (Int) -> Unit = {},
 ) {
     val scrollState = rememberScrollState()
     var selectedIndex by remember { mutableIntStateOf(selected) }
@@ -58,6 +59,8 @@ fun TabContainer(
                 FilterChip(
                     selected = selectedIndex == index,
                     onClick = {
+                        if (selectedIndex == index) return@FilterChip
+                        onValueChange(index)
                         selectedIndex = index
                     },
                     label = {
@@ -130,7 +133,6 @@ fun AppSegmentedButtonRow(
                 SegmentedButton(
                     modifier = Modifier.weight(
                         weight = 1f,
-                        fill = false,
                     ),
                     selected = index == selectedIndex,
                     onClick = {

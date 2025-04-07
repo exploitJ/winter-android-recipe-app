@@ -1,6 +1,5 @@
 package com.surivalcoding.composerecipeapp.presentation.component
 
-import android.graphics.drawable.ColorDrawable
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -12,15 +11,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Timer
-import androidx.compose.material.icons.rounded.BookmarkBorder
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -33,6 +29,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
+import androidx.core.graphics.drawable.toDrawable
 import coil3.Uri
 import coil3.annotation.ExperimentalCoilApi
 import coil3.asImage
@@ -140,20 +137,7 @@ fun RecipeCard(
                             style = AppTextStyles.smallerTextRegular,
                             color = AppColors.gray4
                         )
-                        IconToggleButton(
-                            checked = false, onCheckedChange = {},
-                            modifier = Modifier
-                                .padding(start = 5.dp)
-                                .background(shape = CircleShape, color = Color.White)
-                                .size(24.dp)
-                        ) {
-                            Icon(
-                                imageVector = Icons.Rounded.BookmarkBorder,
-                                contentDescription = null,
-                                tint = AppColors.primary80,
-                                modifier = Modifier.size(16.dp),
-                            )
-                        }
+                        BookmarkToggleButton(onToggle = {})
                     }
                 }
             }
@@ -166,7 +150,7 @@ fun RecipeCard(
 @Composable
 private fun RecipeCardPreview() {
     val previewHandler = AsyncImagePreviewHandler {
-        ColorDrawable(Color.Blue.toArgb()).asImage()
+        Color.Blue.toArgb().toDrawable().asImage()
     }
 
     CompositionLocalProvider(LocalAsyncImagePreviewHandler provides previewHandler) {

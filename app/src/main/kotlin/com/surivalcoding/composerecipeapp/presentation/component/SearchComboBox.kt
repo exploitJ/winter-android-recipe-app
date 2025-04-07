@@ -57,49 +57,49 @@ fun SearchComboBox(
             singleLine = true,
             interactionSource = interactionSource,
             decorationBox =
-            @Composable { innerTextField ->
-                OutlinedTextFieldDefaults.DecorationBox(
-                    contentPadding = PaddingValues(1.dp),
-                    innerTextField = innerTextField,
-                    placeholder = @Composable {
-                        Text(
-                            text = placeholderText,
-                            style = AppTextStyles.smallerTextRegular
-                        )
-                    },
-                    leadingIcon = @Composable {
-                        Icon(
-                            Icons.Outlined.Search,
-                            contentDescription = null,
-                            modifier = Modifier.size(18.dp),
-                            tint = AppColors.gray4
-                        )
-                    },
-                    singleLine = true,
-                    colors = TextFieldDefaults.colors(
-                        focusedPlaceholderColor = AppColors.gray4,
-                        unfocusedPlaceholderColor = AppColors.gray4,
-                    ),
-                    container = {
-                        OutlinedTextFieldDefaults.Container(
-                            focusedBorderThickness = (1.5).dp,
-                            unfocusedBorderThickness = (1.5).dp,
-                            colors = OutlinedTextFieldDefaults.colors(
-                                focusedBorderColor = AppColors.gray4,
-                                unfocusedBorderColor = AppColors.gray4,
-                            ),
-                            shape = RoundedCornerShape(10.dp),
-                            enabled = true,
-                            isError = false,
-                            interactionSource = interactionSource,
-                        )
-                    },
-                    value = value,
-                    enabled = true,
-                    visualTransformation = VisualTransformation.None,
-                    interactionSource = interactionSource,
-                )
-            }
+                @Composable { innerTextField ->
+                    OutlinedTextFieldDefaults.DecorationBox(
+                        contentPadding = PaddingValues(1.dp),
+                        innerTextField = innerTextField,
+                        placeholder = @Composable {
+                            Text(
+                                text = placeholderText,
+                                style = AppTextStyles.smallerTextRegular
+                            )
+                        },
+                        leadingIcon = @Composable {
+                            Icon(
+                                Icons.Outlined.Search,
+                                contentDescription = null,
+                                modifier = Modifier.size(18.dp),
+                                tint = AppColors.gray4
+                            )
+                        },
+                        singleLine = true,
+                        colors = TextFieldDefaults.colors(
+                            focusedPlaceholderColor = AppColors.gray4,
+                            unfocusedPlaceholderColor = AppColors.gray4,
+                        ),
+                        container = {
+                            OutlinedTextFieldDefaults.Container(
+                                focusedBorderThickness = (1.5).dp,
+                                unfocusedBorderThickness = (1.5).dp,
+                                colors = OutlinedTextFieldDefaults.colors(
+                                    focusedBorderColor = AppColors.gray4,
+                                    unfocusedBorderColor = AppColors.gray4,
+                                ),
+                                shape = RoundedCornerShape(10.dp),
+                                enabled = true,
+                                isError = false,
+                                interactionSource = interactionSource,
+                            )
+                        },
+                        value = value,
+                        enabled = true,
+                        visualTransformation = VisualTransformation.None,
+                        interactionSource = interactionSource,
+                    )
+                }
         )
         CompositionLocalProvider(LocalMinimumInteractiveComponentSize provides Dp.Unspecified) {
             FilledTonalIconButton(
