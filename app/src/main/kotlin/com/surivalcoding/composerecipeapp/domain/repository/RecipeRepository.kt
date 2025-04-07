@@ -8,6 +8,7 @@ import com.surivalcoding.composerecipeapp.domain.model.UserId
 
 
 interface RecipeRepository {
+    suspend fun getAll(): Set<Post<Recipe>>
     suspend fun getSavedRecipes(id: UserId): List<Post<Recipe>>
     suspend fun getRecentPosts(amount: Int): List<Post<Recipe>>
     suspend fun <T> getSorted(comparator: Comparator<T>): List<Post<Recipe>>
