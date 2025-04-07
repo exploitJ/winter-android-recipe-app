@@ -1,7 +1,6 @@
 package com.surivalcoding.composerecipeapp.data.util
 
 
-import coil3.Uri
 import coil3.toUri
 import com.surivalcoding.composerecipeapp.data.dto.CommentDto
 import com.surivalcoding.composerecipeapp.data.dto.IngredientDto
@@ -19,37 +18,38 @@ import com.surivalcoding.composerecipeapp.domain.model.Ingredient
 import com.surivalcoding.composerecipeapp.domain.model.Media
 import com.surivalcoding.composerecipeapp.domain.model.Notification
 import com.surivalcoding.composerecipeapp.domain.model.Post
-import com.surivalcoding.composerecipeapp.domain.model.PostId
 import com.surivalcoding.composerecipeapp.domain.model.Recipe
 import com.surivalcoding.composerecipeapp.domain.model.Tag
 import com.surivalcoding.composerecipeapp.domain.model.User
-import com.surivalcoding.composerecipeapp.domain.model.UserId
+import com.surivalcoding.composerecipeapp.presentation.screen.notification.NotificationCardData
+import com.surivalcoding.composerecipeapp.presentation.screen.notification.NotificationType
 import io.ktor.http.Url
+import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import java.util.UUID
 
 fun UserDto.toDomainModel(): User = User(
-    id = UserId(UUID.fromString(id)),
+    id = UUID.fromString(id),
     memberSince = memberSince,
     nickname = nickname,
     fullName = fullName,
     email = Email(email),
-    profileImage = profileImage.toDomainModel(),
+    profileImage = profileImage.toDomainModel() as Media.Image,
     following = following.map { it.toDomainModel() }.toSet(),
     followers = followers.map { it.toDomainModel() }.toSet(),
     bio = bio,
     occupation = occupation,
     address = address,
-    savedPosts = savedPosts.map { PostId(UUID.fromString(it)) }
+    savedPosts = savedPosts.map { UUID.fromString(it) }
 )
 
 fun MinimalUserDto.toDomainModel(): User = User(
-    id = UserId(UUID.fromString(id)),
+    id = UUID.fromString(id),
     memberSince = Instant.fromEpochMilliseconds(0), // Placeholder as minimal doesn't include this
     nickname = nickname,
     fullName = "", // Minimal version doesn't include this
     email = Email(""), // Minimal version doesn't include this
-    profileImage = profileImage.toDomainModel(),
+    profileImage = profileImage.toDomainModel() as Media.Image,
     following = emptySet(),
     followers = emptySet(),
     bio = "",
@@ -65,7 +65,7 @@ fun MediaDto.toDomainModel(): Media = when (this.type) {
 }
 
 fun RecipePostDto.toDomainModel(): Post<Recipe> = Post(
-    id = PostId(UUID.fromString(id)),
+    id = UUID.fromString(id),
     author = author.toDomainModel(),
     title = title,
     comments = comments.map { it.toDomainModel() },
@@ -117,15 +117,64 @@ fun NotificationDto.toDomainModel(): Notification = Notification(
         ?: throw IllegalStateException("Linked post is required")
 )
 
+private fun pluralHandler(count: Long, singular: String, unit: String) =
+    if (count <= 1) "$singular $unit" else "$count ${unit}s"
+
+fun Notification.toUiModel(): NotificationCardData {
+    val now = Clock.System.now()
+    val duration = (now - this.sentAt).absoluteValue
+    val timeElapsedText = when {
+        duration.inWholeMinutes < 60 -> {
+            "${
+                duration.inWholeMinutes.let {
+                    pluralHandler(
+                        it,
+                        "a",
+                        "minute"
+                    )
+                }
+            } ago"
+        }
+
+        duration.inWholeHours < 24 -> {
+            "${duration.inWholeHours.let { pluralHandler(it, "an", "hour") }} ago"
+        }
+
+        duration.inWholeDays < 7 -> {
+            "${duration.inWholeDays.let { pluralHandler(it, "a", "day") }} ago"
+        }
+
+        else -> {
+            "${
+                (duration.inWholeDays / 7).let {
+                    pluralHandler(
+                        it,
+                        "a",
+                        "week"
+                    )
+                }
+            } ago"
+        }
+    }
+    return NotificationCardData(
+        title = this.title,
+        content = this.contents,
+        durationSince = duration,
+        timeElapsedText = timeElapsedText,
+        isRead = this.isRead,
+        type = NotificationType.NEW_POST
+    )
+}
+
 fun MinimalPostDto.toDomainModel(): Post<Unit> = Post(
-    id = PostId(UUID.fromString(id)),
+    id = UUID.fromString(id),
     author = User( // Minimal post doesn't include author details
-        id = UserId(UUID.randomUUID()),
+        id = UUID.randomUUID(),
         memberSince = Instant.fromEpochMilliseconds(0),
         nickname = "",
         fullName = "",
         email = Email(""),
-        profileImage = Media.Image(Uri()),
+        profileImage = Media.Image("".toUri()),
         following = emptySet(),
         followers = emptySet(),
         bio = "",

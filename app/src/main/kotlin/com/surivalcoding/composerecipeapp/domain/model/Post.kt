@@ -17,7 +17,4 @@ data class Post<T>(
     val content: T,
 )
 
-@JvmInline
-value class PostId(val id: UUID) {
-    override fun toString(): String = id.toString()
-}
+typealias PostId = UUID

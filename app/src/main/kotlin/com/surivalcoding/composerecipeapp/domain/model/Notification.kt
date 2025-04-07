@@ -1,6 +1,7 @@
 package com.surivalcoding.composerecipeapp.domain.model
 
 import kotlinx.datetime.Instant
+import java.util.UUID
 
 data class Notification(
     val title: String,
@@ -10,3 +11,5 @@ data class Notification(
     val isRead: Boolean,
     val linkedPost: Post<*>,
 )
+
+typealias NotificationId = UUID

@@ -9,7 +9,7 @@ data class User(
     val nickname: String,
     val fullName: String,
     val email: Email,
-    val profileImage: Media,
+    val profileImage: Media.Image,
     val following: Set<User>,
     val followers: Set<User>,
     val bio: String,
@@ -19,9 +19,7 @@ data class User(
 )
 
 @JvmInline
-value class Email(val address: String)
-
-@JvmInline
-value class UserId(val id: UUID) {
-    override fun toString(): String = id.toString()
+value class Email(private val address: String) {
 }
+
+typealias UserId = UUID

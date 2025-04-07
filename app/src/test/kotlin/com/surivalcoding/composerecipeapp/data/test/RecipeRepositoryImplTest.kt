@@ -1,6 +1,5 @@
 package com.surivalcoding.composerecipeapp.data.test
 
-import com.surivalcoding.composerecipeapp.domain.model.UserId
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
 import java.util.UUID
@@ -19,7 +18,7 @@ class RecipeRepositoryImplTest {
             recipeDataSource = recipeSource,
             userDataSource = userSource,
         )
-        println(repo.getSavedRecipes(UserId(UUID.randomUUID())))
+        println(repo.getSavedRecipes(UUID.randomUUID()))
 
     }
 
